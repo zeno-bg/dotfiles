@@ -1,7 +1,9 @@
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
-filetype off
+filetype plugin on
+
+execute pathogen#infect()
 
 
 set path+=**            " adds fuzzy like search with :find *blqh.py
@@ -43,9 +45,10 @@ endif
 
 " leader key
 let mapleader = ","				" map leader key
+map <space> <leader>
 nmap <leader>l :set list!<CR>	" Use <leader>l to toggle display of whitespace
 
-:nmap <F2> :w<CR>		" remap save (normal mode)
+:nmap <F2> <ESC>:w<CR>  " remap save (normal mode)
 :imap <F2> <ESC>:w<CR>  " remap save (insert mode)
 :vmap <F2> <ESC>:w<CR>  " remap save (visual mode)
 
@@ -56,10 +59,19 @@ map <Leader>a ggVG		" select all
 " Vertical Split : Ctrl+w + v
 " " Horizontal Split: Ctrl+w + s
 " " Close current windows: Ctrl+w + q
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+"map <c-j> <c-w>j
+"map <c-k> <c-w>k
+"map <c-l> <c-w>l
+"map <c-h> <c-w>h
+
+"TODO: attempts for making a new preview window with old file contents
+"map <Leader><c-w>v :let line = line('.') \| vnew \| 0r # \| execute line <CR><c-w><c-p>:set scrollbind<CR>
+"map <Leader><c-w>s :new \| 0r #<CR>
+
+
+"noh
+:map <F4> <ESC>:noh<CR>
+"TODO: ?next search, previous search
 
 
 " easyer moving of blocks of code
@@ -82,8 +94,8 @@ set cmdheight=2				" Set the command window height to 2 lines, to avoid many cas
 set number					" Display the line number
 set notimeout ttimeout ttimeoutlen=200	" Quickly time out on keycodes, but never time out on mappings
 set backup
-set backupdir=~/.vim
-set directory=~/.vim
+set backupdir=~/.vim/backup_files
+set directory=~/.vim/swap_files
 set noswapfile
 set wildcharm=<C-z>			" incremental search with tab
 set showmatch				" show matching bracket
