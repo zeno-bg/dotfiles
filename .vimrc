@@ -103,8 +103,11 @@ set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
-set tags=tags
+set tags=tags;/
 
+set splitbelow
+set splitright
+set encoding=utf-8
 
 set pastetoggle=<F5>		" Map Paste
 "set confirm			" ask if write err istend of err
@@ -130,3 +133,7 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 "auto indent whole file
 command! Indent normal! mzgg=G'z
 
+
+nmap <F9> :TagbarToggle<CR>
+
+let g:tagbar_autofocus = 1
