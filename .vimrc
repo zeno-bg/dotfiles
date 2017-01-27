@@ -130,3 +130,9 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 "auto indent whole file
 command! Indent normal! mzgg=G'z
 
+command! Resview normal /resources<CR><CR>/views<CR><CR>:noh<CR>
+
+augroup MyNerdTreeSettings |  autocmd FileType nerdtree nnoremap <buffer> <F3> :Resview<CR> | augroup END
+
+command! Vtsp normal :vertical topleft split <CR>
+command! Htsp normal :botright split <CR>
