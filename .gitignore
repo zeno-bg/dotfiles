@@ -1,3 +1,5 @@
-/backup_files
-/swap_files
+/backup_files/*
+!/backup_files/.gitkeep
+/swap_files/*
+!/swap_files/.gitkeep
 .netrwhist

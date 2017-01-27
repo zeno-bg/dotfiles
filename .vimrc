@@ -103,8 +103,11 @@ set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
-set tags=tags
+set tags=tags;/
 
+set splitbelow
+set splitright
+set encoding=utf-8
 
 set pastetoggle=<F5>		" Map Paste
 "set confirm			" ask if write err istend of err
@@ -136,3 +139,7 @@ augroup MyNerdTreeSettings |  autocmd FileType nerdtree nnoremap <buffer> <F3> :
 
 command! Vtsp normal :vertical topleft split <CR>
 command! Htsp normal :botright split <CR>
+
+nmap <F9> :TagbarToggle<CR>
+
+let g:tagbar_autofocus = 1
